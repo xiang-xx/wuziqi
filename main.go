@@ -15,6 +15,7 @@ func main() {
 		fmt.Println("hear")
 		controller.WsHandler(c.Writer, c.Request)
 	})
+	r.POST("/new_room", controller.NewRoom)
 
 	r.Run(":8000")
 }

@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"github.com/gorilla/websocket"
 	"fmt"
+	"github.com/gin-gonic/gin"
 )
 
 var upgrader = websocket.Upgrader{
@@ -94,4 +95,11 @@ func WsHandler(w http.ResponseWriter, r *http.Request){
 		}
 		//conn.WriteJSON(message)
 	}
+}
+
+func NewRoom(c *gin.Context){
+	var room_id = 3241
+	c.JSON(http.StatusOK, gin.H{
+		"room_id": room_id,
+	})
 }
